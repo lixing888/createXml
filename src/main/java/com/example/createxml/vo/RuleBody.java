@@ -13,8 +13,6 @@ import java.util.List;
  * @author lixing
  */
 @Data
-@Setter
-@Getter
 @ApiModel
 public class RuleBody {
     @ApiModelProperty("规则内容")

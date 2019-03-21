@@ -14,7 +14,6 @@ import java.util.List;
  * @author lixing
  */
 @Data
-@Builder
 @ApiModel
 public class RuleHeader {
 

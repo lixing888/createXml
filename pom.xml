@@ -36,6 +36,13 @@
             <version>1.16.20</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
         <!--666的工具包 应有尽有-->
         <dependency>
             <groupId>cn.hutool</groupId>

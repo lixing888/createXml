@@ -1,9 +1,13 @@
 package com.example.createxml.controller;
 
 import cn.hutool.core.util.XmlUtil;
+import com.example.createxml.service.XmlService;
 import com.example.createxml.vo.RuleBody;
 import com.example.createxml.vo.RuleHeader;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,25 +17,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/createXml")
+@Api(tags = "xml文件生成")
 public class CreateXml {
+
+    @Autowired
+    private XmlService xmlService;
 
     //获取header标题对象
     //获取body对象
     //将加工好的文件生成xml文件
     @PostMapping("/toXml")
+    @ApiOperation(value = "生成xml文件",notes = "生成xml文件")
     public void toXml(@RequestBody RuleHeader ruleHeader, RuleBody ruleBody){
-        //描述
-        String desc= ruleHeader.getDesc();
-        //规则key
-        String ruleKey=ruleHeader.getRuleKey();
-        //标题参数list
-        List<RuleHeader.RuleInput> ruleInputs=ruleHeader.getRuleInputs();
-        //请求内容
-        List<RuleBody.Body> bodys=ruleBody.getBodys();
 
-        XmlUtil.createXml();
-
-
+        xmlService.toXml(ruleHeader,ruleBody);
 
     }
 
