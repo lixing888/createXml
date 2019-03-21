@@ -33,7 +33,7 @@ public class StringToXml {
         StringBuffer head=new StringBuffer("<definitions xmlns=\"http://www.omg.org/spec/DMN/20151101\" id=\"definition_52ac4098-4abf-11e9-8557-0242ac110002\" name=\"ceo-approve-item\" namespace=\"http://www.flowable.org/dmn\">\n" +
                 "  <decision id=\"ceo_approve_item\" name=\"ceo-approve-item\">\n" +
                 "    <description>预算科目</description>\n" +
-                "    <decisionTable id=\"decisionTable_52ac4098-4abf-11e9-8557-0242ac110002\" hitPolicy=\"FIRST\">");
+                "    <decisionTable id=\"decisionTable_52ac4098-4abf-11e9-8557-0242ac110002\" hitPolicy=\"FIRST\">\n");
 
 
 //        StringBuffer buf = new StringBuffer();
