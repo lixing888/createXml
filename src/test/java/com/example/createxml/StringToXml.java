@@ -28,10 +28,22 @@ public class StringToXml {
         RuleBody.Body body2=new RuleBody.Body();
         body2.setCode("MDBS00000011");
         body2.setThreshold(BigDecimal.valueOf(250000000));
-        body2.setResultInfo(true);
+        body2.setResultInfo(false);
+
+        RuleBody.Body body3=new RuleBody.Body();
+        body3.setCode("MDBS00000012");
+        body3.setThreshold(BigDecimal.valueOf(50000000));
+        body3.setResultInfo(true);
+
+        RuleBody.Body body4=new RuleBody.Body();
+        body4.setCode("MDBS00000013");
+        body4.setThreshold(BigDecimal.valueOf(999999999));
+        body4.setResultInfo(true);
 
         bodys.add(body1);
         bodys.add(body2);
+        bodys.add(body3);
+        bodys.add(body4);
 
         ruleBody.setBodys(bodys);
 
@@ -80,7 +92,7 @@ public class StringToXml {
         for(int i=0;i<ruleInputs.size();i++){
             inputExpression =
                     "      <input label='"+ruleInputs.get(i).getName()+"'>\n" +
-                            "        <inputExpression id=\"inputExpression_inputExpression_10\" typeRef='"+ruleInputs.get(i).getType()+"'>\n" +
+                            "        <inputExpression id=\"inputExpression_inputExpression_"+ruleInputs.get(i).getId()+"\" typeRef='"+ruleInputs.get(i).getType()+"'>\n" +
                             "          <text>"+ruleInputs.get(i).getCode()+"</text>\n" +
                             "        </inputExpression>\n" +
                             "      </input>\n";
@@ -93,13 +105,13 @@ public class StringToXml {
         String rule="";
         for(int j=0;j<bodys.size();j++){
           rule=   "      <rule>\n" +
-                  "        <inputEntry id=\"inputEntry_inputExpression_9_1\">\n" +
+                  "        <inputEntry id=\"inputEntry_inputExpression_9_"+Integer.valueOf(j+1)+"\">\n" +
                   "          <text><![CDATA[== \""+bodys.get(j).getCode()+"\"]]></text>\n" +
                   "        </inputEntry>\n" +
-                  "        <inputEntry id=\"inputEntry_inputExpression_10_1\">\n" +
+                  "        <inputEntry id=\"inputEntry_inputExpression_10_"+Integer.valueOf(j+1)+"\">\n" +
                   "          <text><![CDATA[>= "+bodys.get(j).getThreshold()+"]]></text>\n" +
                   "        </inputEntry>\n" +
-                  "        <outputEntry id=\"outputEntry_outputExpression_6_1\">\n" +
+                  "        <outputEntry id=\"outputEntry_outputExpression_6_"+Integer.valueOf(j+1)+"\">\n" +
                   "          <text><![CDATA["+bodys.get(j).isResultInfo()+"]]></text>\n" +
                   "        </outputEntry>\n" +
                   "      </rule>\n";
