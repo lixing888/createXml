@@ -2,9 +2,8 @@ package com.example.createxml.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;

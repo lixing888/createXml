@@ -4,9 +4,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 
 import java.util.List;
 
@@ -25,10 +22,6 @@ public class RuleHeader {
 
     @ApiModelProperty("标题参数")
     public List<RuleInput> ruleInputs;
-
-    public void setRuleKey(String ruleKey) {
-        this.ruleKey = ruleKey;
-    }
 
     @Data
     public static class RuleInput{
