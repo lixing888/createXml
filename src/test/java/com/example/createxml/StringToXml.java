@@ -141,13 +141,13 @@ public class StringToXml {
             //设置编码格式
             format.setEncoding("UTF-8");
             //生成xml文件
-            File file = new File("test.xml");
+            File file = new File(ruleKey+".xml");
             XMLWriter writer = new XMLWriter(new FileOutputStream(file), format);
             //设置是否转义，默认使用转义字符
             writer.setEscapeText(false);
             writer.write(document);
             writer.close();
-            System.out.println("生成test.xml成功");
+            System.out.println("生成"+ruleKey+".xml成功");
 
 
         } catch (Exception e) {
