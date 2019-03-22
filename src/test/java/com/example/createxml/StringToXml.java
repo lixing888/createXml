@@ -5,7 +5,17 @@ import com.example.createxml.vo.RuleHeader;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
+import org.w3c.dom.Node;
 
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -126,6 +136,19 @@ public class StringToXml {
         try {
             Document document=DocumentHelper.parseText(head.toString());//获取Document对象
             System.out.println("string转xml:"+document.asXML().toString());
+            //设置生成xml的格式
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            //设置编码格式
+            format.setEncoding("UTF-8");
+            //生成xml文件
+            File file = new File("test.xml");
+            XMLWriter writer = new XMLWriter(new FileOutputStream(file), format);
+            //设置是否转义，默认使用转义字符
+            writer.setEscapeText(false);
+            writer.write(document);
+            writer.close();
+            System.out.println("生成test.xml成功");
+
 
         } catch (Exception e) {
             e.printStackTrace();
